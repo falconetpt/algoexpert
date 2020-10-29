@@ -1,7 +1,5 @@
 package easy;
 
-import java.util.List;
-
 public class NthFibonacci {
     public static int getNthFib(int n) {
         // Write your code here.
