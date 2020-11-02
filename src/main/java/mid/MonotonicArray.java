@@ -1,8 +1,5 @@
 package mid;
 
-import com.sun.tools.corba.se.idl.toJavaPortable.InterfaceGen;
-import sun.jvm.hotspot.jdi.IntegerTypeImpl;
-
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
