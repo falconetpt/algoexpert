@@ -5,16 +5,28 @@ import java.util.stream.IntStream;
 public class BlobMatch {
     public static boolean globMatching(String fileName, String pattern) {
         // Write your code here.
-        boolean result[][] = new boolean[fileName.length() + 1][pattern.length() + 1];
+        boolean result[][] = new boolean[pattern.length() + 1][fileName.length() + 1];
 
         result[0][0] = true;
 
-        for (int r = 0; r < fileName.length(); r++) {
-            for (int c = 0; c < fileName.length(); c++) {
-                char fileChar = fileName.charAt( r );
-                char patternChar = fileName.charAt( c );
+        for (int patternIndex = 0; patternIndex < pattern.length(); patternIndex++) {
+            for (int fileIndex = 0; fileIndex < fileName.length(); fileIndex++) {
+                char patternChar = pattern.charAt( patternIndex );
+                char fileChar = fileName.charAt( fileIndex );
 
-
+                switch (patternChar) {
+                    case '*':
+                        result[patternIndex + 1][fileIndex + 1]
+                                = result[patternIndex + 1][fileIndex] || result[patternIndex][fileIndex + 1];
+                        break;
+                    case '?':
+                        result[patternIndex + 1][fileIndex + 1] = result[patternIndex][fileIndex];
+                        break;
+                    default:
+                        result[patternIndex + 1][fileIndex + 1] = fileChar == patternChar
+                                && result[patternIndex][fileIndex];
+                        break;
+                }
             }
         }
 
