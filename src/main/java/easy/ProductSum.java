@@ -1,8 +1,5 @@
 package easy;
 
-import com.sun.corba.se.spi.ior.ObjectKey;
-
-import java.util.ArrayList;
 import java.util.List;
 
 public class ProductSum {
