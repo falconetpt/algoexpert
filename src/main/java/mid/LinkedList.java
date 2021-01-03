@@ -11,11 +11,13 @@ public class LinkedList {
 
         public void setHead(Node node) {
             // Write your code here.
+            node.next = this.head;
             this.head = node;
         }
 
         public void setTail(Node node) {
             // Write your code here.
+            this.tail.next = node;
             this.tail = node;
         }
 
