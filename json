@@ -1,0 +1,38 @@
+[
+  {"arguments": [5], "method": "push", "output": null},
+  {"arguments": [], "method": "getMin", "output": 5},
+  {"arguments": [], "method": "getMax", "output": 5},
+  {"arguments": [], "method": "peek", "output": 5},
+  {"arguments": [7], "method": "push", "output": null},
+  {"arguments": [], "method": "getMin", "output": 5},
+  {"arguments": [], "method": "getMax", "output": 7},
+  {"arguments": [], "method": "peek", "output": 7},
+  {"arguments": [2], "method": "push", "output": null},
+  {"arguments": [], "method": "getMin", "output": 2},
+  {"arguments": [], "method": "getMax", "output": 7},
+  {"arguments": [], "method": "peek", "output": 2},
+  {"arguments": [], "method": "pop", "output": 2},
+  {"arguments": [], "method": "pop", "output": 7},
+  {"arguments": [], "method": "getMin", "output": 5},
+  {"arguments": [], "method": "getMax", "output": 5},
+  {"arguments": [], "method": "peek", "output": 5}
+]
+[
+  {"arguments": [5], "method": "push", "output": null},
+  {"arguments": [], "method": "getMin", "output": 5},
+  {"arguments": [], "method": "getMax", "output": 5},
+  {"arguments": [], "method": "peek", "output": 5},
+  {"arguments": [7], "method": "push", "output": null},
+  {"arguments": [], "method": "getMin", "output": 5},
+  {"arguments": [], "method": "getMax", "output": 5},
+  {"arguments": [], "method": "peek", "output": 7},
+  {"arguments": [2], "method": "push", "output": null},
+  {"arguments": [], "method": "getMin", "output": 5},
+  {"arguments": [], "method": "getMax", "output": 5},
+  {"arguments": [], "method": "peek", "output": 2},
+  {"arguments": [], "method": "pop", "output": 5},
+  {"arguments": [], "method": "pop", "output": 7},
+  {"arguments": [], "method": "getMin", "output": 2},
+  {"arguments": [], "method": "getMax", "output": 5},
+  {"arguments": [], "method": "peek", "output": 2}
+]
