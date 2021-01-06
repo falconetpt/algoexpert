@@ -17,8 +17,8 @@ public class LongestPalindrome {
                 System.out.println("sb.toString() = " + sb.toString());
             }
 
-            if (new StringBuilder(sb).toString().equals(new StringBuilder(sb).reverse().toString())) {
-                if (sb.length() > result.length()) result = new StringBuilder(sb).toString();
+            if (String.valueOf(sb).equals(new StringBuilder(sb).reverse().toString())) {
+                if (sb.length() > result.length()) result = String.valueOf(sb);
             }
 
         }
