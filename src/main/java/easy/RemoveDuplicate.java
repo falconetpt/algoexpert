@@ -28,8 +28,7 @@ public class RemoveDuplicate {
                     .filter( l -> l.value == linkedList.value )
                     .map( l -> {
                         linkedList.next = l.next;
-                        removeDuplicates( linkedList );
-                        return 1;
+                        return removeDuplicates( linkedList );
                     })
                     .orElseGet( () -> removeDuplicates( linkedList.next ) );
         }
