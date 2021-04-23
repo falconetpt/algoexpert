@@ -9,6 +9,8 @@ import java.util.stream.Collectors;
 
 public class MergeOverlappingIntervals {
   public int[][] mergeOverlappingIntervals(int[][] intervals) {
+    //O(n log n) time
+    //O(n) space
     final LinkedList<int[]> linkedList = Arrays.stream(intervals)
       .sorted(Comparator.comparingInt(a -> a[0]))
             .collect(Collectors.toCollection(LinkedList::new));
