@@ -2,66 +2,57 @@ package mid;
 
 import java.awt.*;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Map;
 import java.util.Queue;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class SpiralTraverse {
-    public static List<Integer> spiralTraverse(int[][] array) {
+  public static List<Integer> spiralTraverse(int[][] array) {
+    final LinkedList<Point> moves = Stream.of(
+      new Point( 1, 0 ),
+      new Point( 0, 1 ),
+      new Point( 0, -1 ),
+      new Point( -1, 0 )
+    ).collect( Collectors.toCollection( LinkedList::new ) );
 
-        final Queue<Point> moves = Stream.of(
-                new Point( 0, 1 ),
-                new Point( 1, 0 ),
-                new Point( 0, -1 ),
-                new Point( -1, 0 )
-        ).collect( Collectors.toCollection( LinkedList::new ) );
+    final Map<Point, Integer> map = createMap(array);
 
-        int[][] baseSpiral = new int[array.length][array.length];
-        baseSpiral[0][0] = 1;
+    return spiralTraverse(map, moves, new Point(0, 0), new ArrayList<>());
+  }
 
-        List<Point> movePoints = spiralTraverse( baseSpiral, moves,
-                array.length * array.length, new Point( 0, 0 ),
-                Stream.of( new Point( 0, 0 ) ).collect( Collectors.toCollection(ArrayList::new))
-        );
+  private static List<Integer> spiralTraverse(Map<Point, Integer> map, LinkedList<Point> moves,
+                                              Point point, List<Integer> es) {
+    if (map.isEmpty()) {
+      return es;
+    } else {
+      final Point move = moves.peekFirst();
+      final Point newPoint = new Point(point.x + move.x, point.y + move.y);
 
-        // Write your code here.
-        return movePoints.stream()
-                .map( p -> array[p.x][p.y] )
-                .collect( Collectors.toList() );
+      if (map.containsKey(newPoint)) {
+        es.add(map.get(newPoint));
+        map.remove(newPoint);
+        return spiralTraverse(map, moves, newPoint, es);
+      } else {
+        moves.pollFirst();
+        moves.addLast(move);
+        return spiralTraverse(map, moves, point, es);
+      }
+    }
+  }
+
+  private static Map<Point, Integer> createMap(final int[][] array) {
+    final Map<Point, Integer> result = new HashMap<>();
+
+    for (int i = 0; i < array.length; i++) {
+      for (int j = 0; j < array[i].length; j++) {
+        result.put(new Point(i, j), array[i][j]);
+      }
     }
 
-    private static List<Point> spiralTraverse(final int[][] baseSpiral,
-                                              final Queue<Point> moves,
-                                              final int expectedSize,
-                                              final Point point,
-                                              final List<Point> result) {
-        if (result.size() == expectedSize) {
-            return result;
-        } else {
-            Point move = moves.peek();
-            Point newPoint = new Point( point.x + move.x, point.y + move.y );
-
-            if (isValid( baseSpiral, newPoint )) {
-                baseSpiral[newPoint.x][newPoint.y] = 1;
-                result.add( newPoint );
-
-                return spiralTraverse( baseSpiral, moves, expectedSize, newPoint, result );
-            } else {
-                moves.poll();
-                moves.add( move );
-                return spiralTraverse( baseSpiral, moves, expectedSize, point, result );
-            }
-
-        }
-    }
-
-    private static boolean isValid(int[][] baseSpiral, Point point) {
-        if (Stream.of( point.x, point.y ).allMatch( x -> x >= 0 && x < baseSpiral.length )) {
-            return baseSpiral[point.x][point.y] == 0;
-        } else {
-            return false;
-        }
-    }
+    return result;
+  }
 }
