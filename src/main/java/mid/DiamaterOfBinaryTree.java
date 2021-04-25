@@ -1,10 +1,8 @@
 package mid;
 
-import jdk.internal.net.http.common.Pair;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Objects;
 
 public class DiamaterOfBinaryTree {
   static class BinaryTree {
