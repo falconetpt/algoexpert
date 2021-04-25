@@ -1,43 +1,44 @@
-//package mid;
-//
-//import jdk.internal.net.http.common.Pair;
-//
-//import java.util.HashMap;
-//import java.util.Map;
-//import java.util.Objects;
-//
-//public class DiamaterOfBinaryTree {
-//    static class BinaryTree {
-//        public int value;
-//        public BinaryTree left = null;
-//        public BinaryTree right = null;
-//
-//        public BinaryTree(int value) {
-//            this.value = value;
-//        }
-//    }
-//
-//    public int binaryTreeDiameter(BinaryTree tree) {
-//        // Write your code here.
-//        Map<Integer, Pair<Integer, Integer>> map = new HashMap<>(  );
-//
-//        binaryTreeDiameter( tree, 0, 0, map );
-//
-//        return map.values().stream()
-//                .map( v -> Math.abs( v.first - v.second ) )
-//                .max( Integer::compareTo )
-//                .orElse( 0 );
-//    }
-//
-//    private void binaryTreeDiameter(BinaryTree tree,
-//                                   int level,
-//                                   int i,
-//                                   Map<Integer, Pair<Integer, Integer>> map) {
-//        if (Objects.nonNull(tree)) {
-//            map.putIfAbsent( level, new Pair<>( 0, 0 ) );
-//
-//            binaryTreeDiameter( tree.left, level + 1, 2 * i, map );
-//            binaryTreeDiameter( tree.right, level + 1, 2 * i + 1, map );
-//        }
-//    }
-//}
+package mid;
+
+import jdk.internal.net.http.common.Pair;
+
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
+
+public class DiamaterOfBinaryTree {
+  static class BinaryTree {
+    public int value;
+    public BinaryTree left = null;
+    public BinaryTree right = null;
+
+    public BinaryTree(int value) {
+        this.value = value;
+    }
+  }
+
+  public int binaryTreeDiameter(final BinaryTree tree) {
+    final Map<BinaryTree, Integer> diameter = new HashMap<>();
+    binaryTreeDiameter(tree, diameter);
+
+    return diameter.values()
+      .stream()
+      .max(Integer::compareTo)
+      .orElse(-1);
+  }
+
+  private int binaryTreeDiameter(final BinaryTree tree,
+                                 final Map<BinaryTree, Integer> diameter) {
+    if (tree == null) {
+      return 0;
+    } else {
+      final int maxDiameter = 1;
+      final int leftDiameter = binaryTreeDiameter(tree.left, diameter);
+      final int rightDiameter = binaryTreeDiameter(tree.right, diameter);
+      final int total = maxDiameter + leftDiameter + rightDiameter;
+      diameter.put(tree, total);
+
+      return total;
+    }
+  }
+}
