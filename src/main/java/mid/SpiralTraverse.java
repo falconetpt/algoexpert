@@ -6,22 +6,24 @@ import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
-import java.util.Queue;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class SpiralTraverse {
   public static List<Integer> spiralTraverse(int[][] array) {
     final LinkedList<Point> moves = Stream.of(
-      new Point( 1, 0 ),
       new Point( 0, 1 ),
+      new Point( 1, 0 ),
       new Point( 0, -1 ),
       new Point( -1, 0 )
     ).collect( Collectors.toCollection( LinkedList::new ) );
 
     final Map<Point, Integer> map = createMap(array);
+    map.remove(new Point(0, 0));
+    final List<Integer> result = new ArrayList<>();
+    result.add(array[0][0]);
 
-    return spiralTraverse(map, moves, new Point(0, 0), new ArrayList<>());
+    return spiralTraverse(map, moves, new Point(0, 0), result);
   }
 
   private static List<Integer> spiralTraverse(Map<Point, Integer> map, LinkedList<Point> moves,
