@@ -76,7 +76,7 @@ public class PhoneMnemonicTest {
   @Test
   public void phoneNumberMnemonics_three_returnsListOfDef() {
     final var actual = phoneMnemonic.phoneNumberMnemonics("3");
-    final var expected = Set.of("a", "b", "c");
+    final var expected = Set.of("d", "e", "f");
 
     assertEquals(expected, new HashSet<>(actual));
   }
