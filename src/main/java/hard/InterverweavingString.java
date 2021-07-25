@@ -19,8 +19,8 @@ public class InterverweavingString {
       return true;
     } else {
       final var charOne = oneIndex >= one.length()
-      ? ' '
-      : one.charAt(oneIndex);
+        ? ' '
+        : one.charAt(oneIndex);
       final var charTwo = twoIndex >= two.length()
         ? ' '
         : two.charAt(twoIndex);

@@ -3,7 +3,7 @@ package hard;
 import org.junit.Before;
 import org.junit.Test;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 public class IndexSameValueTest {
   private IndexSameValue indexSameValue;
@@ -15,16 +15,16 @@ public class IndexSameValueTest {
 
   @Test
   public void find_existingElementInOddArray_returnsLastIndex() {
-    assertEquals(2, indexSameValue.indexEqualsValue(new int[] {-3, -2, 2}));
+    assertEquals(2, indexSameValue.indexEqualsValue(new int[]{-3, -2, 2}));
   }
 
   @Test
   public void find_existingFirstElementInOddArray_returnsFirstIndex() {
-    assertEquals(0, indexSameValue.indexEqualsValue(new int[] {0, 3, 7}));
+    assertEquals(0, indexSameValue.indexEqualsValue(new int[]{0, 3, 7}));
   }
 
   @Test
   public void find_nonExistingElementInOddArray_returnsNegOne() {
-    assertEquals(0, indexSameValue.indexEqualsValue(new int[] {0, 3, 7}));
+    assertEquals(0, indexSameValue.indexEqualsValue(new int[]{0, 3, 7}));
   }
 }

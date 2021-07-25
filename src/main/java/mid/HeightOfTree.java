@@ -20,8 +20,8 @@ public class HeightOfTree {
       return true;
     } else {
       return heightBalancedBinaryTree(tree.left)
-              && heightBalancedBinaryTree(tree.right)
-              && Math.abs(height(tree.right) - height(tree.left)) < 2;
+        && heightBalancedBinaryTree(tree.right)
+        && Math.abs(height(tree.right) - height(tree.left)) < 2;
     }
   }
 

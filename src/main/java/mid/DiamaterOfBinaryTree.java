@@ -11,7 +11,7 @@ public class DiamaterOfBinaryTree {
     public BinaryTree right = null;
 
     public BinaryTree(int value) {
-        this.value = value;
+      this.value = value;
     }
   }
 

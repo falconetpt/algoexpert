@@ -2,7 +2,7 @@ package hard;
 
 public class IndexSameValue {
   public int indexEqualsValue(int[] array) {
-    return indexEqualsValue(array, 0 , array.length - 1);
+    return indexEqualsValue(array, 0, array.length - 1);
   }
 
   private int indexEqualsValue(final int[] array,

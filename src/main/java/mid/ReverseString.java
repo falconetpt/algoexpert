@@ -1,7 +1,6 @@
 package mid;
 
 import java.util.LinkedList;
-import java.util.stream.Collectors;
 
 public class ReverseString {
   public String reverseWordsInString(final String string) {

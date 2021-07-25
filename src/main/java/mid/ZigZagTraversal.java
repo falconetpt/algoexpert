@@ -1,8 +1,7 @@
 package mid;
 
-import java.awt.Point;
+import java.awt.*;
 import java.util.ArrayList;
-import java.util.Comparator;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
@@ -23,7 +22,7 @@ public class ZigZagTraversal {
     return zigZagTraverse(
       array,
       moves,
-      new Point(0,0),
+      new Point(0, 0),
       new ArrayList<>(),
       -1
     );

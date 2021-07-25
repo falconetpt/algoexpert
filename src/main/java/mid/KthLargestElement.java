@@ -27,14 +27,14 @@ public class KthLargestElement {
                                         final LinkedList<Integer> integers) {
     if (integers.size() < k && Objects.nonNull(tree)) {
       Optional.ofNullable(tree.right)
-              .ifPresent(p -> findKthLargestValueInBst(p, k, integers));
+        .ifPresent(p -> findKthLargestValueInBst(p, k, integers));
 
-      if(integers.size() < k) integers.add(tree.value);
+      if (integers.size() < k) integers.add(tree.value);
       System.out.println("added: " + tree.value);
 
 
       Optional.ofNullable(tree.left)
-              .ifPresent(p -> findKthLargestValueInBst(p, k, integers));
+        .ifPresent(p -> findKthLargestValueInBst(p, k, integers));
     }
   }
 }

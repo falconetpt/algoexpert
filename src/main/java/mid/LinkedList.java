@@ -1,16 +1,12 @@
 package mid;
 
-import javax.swing.text.html.Option;
-import java.util.Objects;
-import java.util.Optional;
-
 public class LinkedList {
   static class DoublyLinkedList {
     public Node head;
     public Node tail;
 
     public void setHead(Node node) {
-     head = node;
+      head = node;
     }
 
     public void setTail(Node node) {

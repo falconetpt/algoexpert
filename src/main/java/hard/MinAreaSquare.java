@@ -1,7 +1,6 @@
 package hard;
 
 import java.awt.*;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -14,13 +13,13 @@ public class MinAreaSquare {
     Map<Integer, Set<Point>> yMap = new HashMap<>();
 
     Arrays.stream(points)
-            .map(i -> new Point(i[0], i[1]))
-            .peek(i -> xMap.putIfAbsent(i.x, new HashSet<>()))
-            .peek(i -> yMap.putIfAbsent(i.y, new HashSet<>()))
-            .forEach(i -> {
-              xMap.get(i.x).add(i);
-              yMap.get(i.y).add(i);
-            });
+      .map(i -> new Point(i[0], i[1]))
+      .peek(i -> xMap.putIfAbsent(i.x, new HashSet<>()))
+      .peek(i -> yMap.putIfAbsent(i.y, new HashSet<>()))
+      .forEach(i -> {
+        xMap.get(i.x).add(i);
+        yMap.get(i.y).add(i);
+      });
 
     int result = Integer.MAX_VALUE;
 

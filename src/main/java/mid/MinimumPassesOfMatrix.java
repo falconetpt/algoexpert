@@ -1,6 +1,6 @@
 package mid;
 
-import java.awt.Point;
+import java.awt.*;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;

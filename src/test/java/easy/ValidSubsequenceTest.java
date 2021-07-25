@@ -4,16 +4,16 @@ import org.junit.Test;
 
 import java.util.Arrays;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertTrue;
 
 public class ValidSubsequenceTest {
 
-    @Test
-    public void isValidSubsequence() {
+  @Test
+  public void isValidSubsequence() {
 
-        Integer[] array = new Integer[] { 5, 1, 22, 25, 6, -1, 8, 10};
-        Integer[] sequence = new Integer[] { 1, 6, -1, 10 };
+    Integer[] array = new Integer[]{5, 1, 22, 25, 6, -1, 8, 10};
+    Integer[] sequence = new Integer[]{1, 6, -1, 10};
 
-        assertTrue( ValidSubsequence.isValidSubsequence( Arrays.asList( array ), Arrays.asList( sequence ) ) );
-    }
+    assertTrue(ValidSubsequence.isValidSubsequence(Arrays.asList(array), Arrays.asList(sequence)));
+  }
 }

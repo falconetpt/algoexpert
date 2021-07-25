@@ -13,7 +13,7 @@ public class MergeOverlappingIntervals {
     //O(n) space
     final LinkedList<int[]> linkedList = Arrays.stream(intervals)
       .sorted(Comparator.comparingInt(a -> a[0]))
-            .collect(Collectors.toCollection(LinkedList::new));
+      .collect(Collectors.toCollection(LinkedList::new));
     final List<int[]> result = new ArrayList<>();
 
     int[] previous = linkedList.pollFirst();

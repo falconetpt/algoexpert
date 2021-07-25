@@ -12,11 +12,11 @@ import java.util.stream.Stream;
 public class SpiralTraverse {
   public static List<Integer> spiralTraverse(int[][] array) {
     final LinkedList<Point> moves = Stream.of(
-      new Point( 0, 1 ),
-      new Point( 1, 0 ),
-      new Point( 0, -1 ),
-      new Point( -1, 0 )
-    ).collect( Collectors.toCollection( LinkedList::new ) );
+      new Point(0, 1),
+      new Point(1, 0),
+      new Point(0, -1),
+      new Point(-1, 0)
+    ).collect(Collectors.toCollection(LinkedList::new));
 
     final Map<Point, Integer> map = createMap(array);
     map.remove(new Point(0, 0));

@@ -23,7 +23,7 @@ public class CircleInGraph {
     } else if (seen.contains(index)) {
       map.put(index, false);
       return false;
-    } else if(map.containsKey(index)) {
+    } else if (map.containsKey(index)) {
       return map.get(index);
     } else {
       seen.add(index);

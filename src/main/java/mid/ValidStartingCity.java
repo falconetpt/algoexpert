@@ -8,7 +8,7 @@ public class ValidStartingCity {
                                final int mpg) {
     return IntStream.rangeClosed(1, distances.length)
       .filter(i -> fuel[i - 1] * mpg >= distances[i % distances.length])
-      .filter(i -> canGoToEveryLocation(distances, fuel, mpg, i - 1, i -1, 0))
+      .filter(i -> canGoToEveryLocation(distances, fuel, mpg, i - 1, i - 1, 0))
       .map(i -> i - 1)
       .findFirst()
       .orElse(-1);
