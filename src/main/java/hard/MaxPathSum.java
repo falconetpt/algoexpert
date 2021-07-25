@@ -17,7 +17,6 @@ public class MaxPathSum {
         .stream()
         .max(Integer::compareTo)
         .orElse(-1);
-
     }
   }
 
